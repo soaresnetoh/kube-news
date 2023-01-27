@@ -13,3 +13,6 @@ DB_USERNAME => Usuário do banco de dados.
 DB_PASSWORD => Senha do usuário do banco de dados.
 
 DB_HOST => Endereço do banco de dados.
+
+
+k3d cluster create meucluster --servers 1 --agents 3 -p "80:30000@loadbalancer"

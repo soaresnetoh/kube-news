@@ -46,7 +46,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: web
@@ -54,10 +54,14 @@ spec:
     metadata:
       labels:
         app: web
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
     spec:
       containers:
       - name: web
-        image: hernanisoares/kube-news:{{TAG}}
+        image: hernanisoares/kube-news:9
         resources:
           limits:
             memory: "128Mi"
